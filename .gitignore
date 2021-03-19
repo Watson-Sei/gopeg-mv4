@@ -11,6 +11,8 @@
 
 # jetbrains setting
 .idea
+# vscode
+.DS_Store
 
 # Test binary, built with `go test -c`
 *.test
@@ -26,3 +28,7 @@
 /Godeps/
 
 # End of https://www.toptal.com/developers/gitignore/api/go
+
+# test video directory
+test_input
+test_output
