@@ -13,7 +13,7 @@ func TestCombineMp4(t *testing.T) {
 }
 
 func TestWriteTxt(t *testing.T) {
-	err := WriteTxt([]string{"test.txt","test1.txt","test2.txt"})
+	err := WriteTxt([]string{"test1.mp4","test2.mp4","test3.mp4"})
 	if err != nil {
 		t.Errorf("Text file creation error")
 	}
@@ -28,7 +28,7 @@ func TestRemoveTxt(t *testing.T) {
 
 func TestWalkDir(t *testing.T) {
 	got := dirwalk("./test_input")
-	want := []string{"test_input/test.mp4", "test_input/test1.mp4", "test_input/test2.mp4"}
+	want := []string{"test_input/test1.mp4", "test_input/test2.mp4", "test_input/test3.mp4"}
 
 	if !reflect.DeepEqual(got, want) {
 		t.Errorf("got: %s, want: %s", got, want)

@@ -14,16 +14,17 @@ func CombineMp4(fileName, inputPath, outputPath string) error {
 	if err := WriteTxt(dirwalk(inputPath)); err != nil {
 		panic(err)
 	}
-	cmd, _ := exec.Command("ffmpeg", "-f", "concat", "-i", "/tmp/vr_memo.txt", outputPath + "/" + fileName).Output()
-	log.Println(cmd)
-	if err := RemoveTxt(); err != nil {
-		panic(err)
-	}
+	log.Println("処理開始")
+	cmd := exec.Command("ffmpeg", "-f", "concat", "-i", "vr_memo.txt", fmt.Sprintf("%s/%s", outputPath, fileName))
+	cmd.Start()
+	log.Println("処理実行中")
+	cmd.Wait()
+	log.Println("処理終了")
 	return nil
 }
 
 func WriteTxt(paths []string) error {
-	file, err := os.Create("/tmp/vr_memo.txt")
+	file, err := os.Create("vr_memo.txt")
 	if err != nil {
 		panic(err)
 	}
@@ -43,7 +44,7 @@ func WriteTxt(paths []string) error {
 }
 
 func RemoveTxt() error {
-	err := os.Remove("/tmp/vr_memo.txt")
+	err := os.Remove("vr_memo.txt")
 	if err != nil {
 		panic(err)
 	}

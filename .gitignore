@@ -30,5 +30,5 @@
 # End of https://www.toptal.com/developers/gitignore/api/go
 
 # test video directory
-./test_input
-./test_output
+test_output
+test_input
