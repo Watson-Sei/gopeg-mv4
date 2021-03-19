@@ -1,3 +1,3 @@
-module github.com/Watson-Sei/gopeg-mp4
+module github.com/Watson-Sei/gopeg-mv4
 
 go 1.16
